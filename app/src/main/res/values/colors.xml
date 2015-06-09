@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- If these colors are used in styles.xml, they will be discussed there. -->
+
+    <item name="primary" type="color">#4CAF50</item>
+    <item name="primaryDark" type="color">#388E3C</item>1
+    <item name="primaryLight" type="color">#C8E6C9</item>
+    <item name="accent" type="color">#FF9800</item>
+    <item name="actionBarText" type="color">#FFFFFF</item>
+    <item name="textPrimary" type="color">#212121</item>
+    <item name="textSecondary" type="color">#727272</item>
+</resources>

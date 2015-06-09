@@ -1,0 +1,32 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Base.Theme.AppCompat.Light">
+        <!-- The app's primary color. On AppCompat, this is the action bar bg color. -->
+        <item name="colorPrimary">@color/primary</item>
+        <!-- The app's secondary color. On AppCompat, this is the notification bar bg color. -->
+        <item name="colorPrimaryDark">@color/primaryDark</item>
+        <!-- The app's accent color. On AppCompat, this is for objects meant to catch the eye. -->
+        <item name="colorAccent">@color/accent</item>
+        <!-- The primary color for "body" text. -->
+        <item name="android:textColorPrimary">@color/textPrimary</item>
+        <!-- The secondary color for notes and the like. -->
+        <item name="android:textColorSecondary">@color/textSecondary</item>
+
+        <!-- Delegates the details of the action bar style to another object. -->
+        <item name="actionBarStyle">@style/ActionBar</item>
+    </style>
+
+    <!-- The action bar theme. -->
+    <style name="ActionBar" parent="@style/Widget.AppCompat.ActionBar.Solid">
+        <!-- Delegates the text style of the action bar title text to another object. -->
+        <item name="titleTextStyle">@style/TitleTextStyle</item>
+    </style>
+
+    <!-- The action bar title text theme. -->
+    <style name="TitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <!-- The color of the title text -->
+        <item name="android:textColor">@color/actionBarText</item>
+    </style>
+
+</resources>
