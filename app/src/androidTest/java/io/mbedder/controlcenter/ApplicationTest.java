@@ -1,4 +1,4 @@
-package io.mbetter.controlcenter;
+package io.mbedder.controlcenter;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
