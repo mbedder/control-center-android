@@ -1,8 +1,11 @@
 package io.mbedder.controlcenter;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -25,6 +28,15 @@ public class MainActivity extends AppCompatActivity {
 
         ListView listView = (ListView)findViewById(R.id.componentList);
         listView.setAdapter(adapter);
+
+        final FloatingActionButton createComponentFAB = (FloatingActionButton) findViewById(R.id.createComponentFAB);
+        createComponentFAB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment createComponentDialog = new CreateComponentDialog();
+                createComponentDialog.show(getSupportFragmentManager(), "createComponent");
+            }
+        });
     }
 
     @Override

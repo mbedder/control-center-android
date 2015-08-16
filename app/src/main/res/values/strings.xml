@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Control Center</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="create">Create</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="promptComponentName">Name:</string>
+
+    <string name="setOnPosition">Set On Position</string>
+    <string name="setOffPosition">Set Off Position</string>
 </resources>
