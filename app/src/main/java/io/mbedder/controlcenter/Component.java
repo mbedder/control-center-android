@@ -1,5 +1,6 @@
 package io.mbedder.controlcenter;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -20,10 +21,12 @@ public class Component {
      */
     Map<Boolean, Integer> positions;
 
-    public Component(String name, boolean state, Map<Boolean, Integer> positions) {
+    public Component(String name, boolean state, int offPos, int onPos) {
         this.name = name;
         this.state = state;
-        this.positions = positions;
+        this.positions = new HashMap<>(2);
+        this.positions.put(false, offPos);
+        this.positions.put(true, onPos);
     }
 
 }

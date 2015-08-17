@@ -4,8 +4,12 @@
     <string name="create">Create</string>
     <string name="cancel">Cancel</string>
 
+    <string name="errorDialogTitle">Error</string>
+
     <string name="promptComponentName">Name:</string>
 
     <string name="setOnPosition">Set On Position</string>
     <string name="setOffPosition">Set Off Position</string>
+
+    <string name="preferencesComponents">components</string>
 </resources>

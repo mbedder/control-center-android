@@ -8,8 +8,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,13 +16,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayList<Component> components = new ArrayList<>();
-        components.add(new Component("Living Room Light Switch", false, null));
-        components.add(new Component("Bathroom Light Switch", true, null));
-        components.add(new Component("Old Radio Volume", false, null));
-        components.add(new Component("Nuke Switch", false, null));
-
-        ComponentListAdapter adapter = new ComponentListAdapter(this, R.layout.component_list_item, components);
+        ComponentListAdapter adapter;
+        try {
+            adapter = ComponentDAO.getListAdapter(this);
+        } catch(MalformedPreferencesException e) {
+            // TODO(velovix): provide a graceful response to a malformed preferences exception.
+            throw new RuntimeException(e);
+        }
 
         ListView listView = (ListView)findViewById(R.id.componentList);
         listView.setAdapter(adapter);
@@ -44,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        item.getItemId();
 
         return super.onOptionsItemSelected(item);
     }

@@ -6,7 +6,10 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
+import android.text.Editable;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.EditText;
 
 public class CreateComponentDialog extends DialogFragment {
 
@@ -21,11 +24,29 @@ public class CreateComponentDialog extends DialogFragment {
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
 
-        builder.setView(inflater.inflate(R.layout.dialog_create_component, null))
+        final View createComponentView = inflater.inflate(R.layout.dialog_create_component, null);
+
+        builder.setView(createComponentView)
                 .setPositiveButton(R.string.create, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
-                        // FUNCTIONALITY
+                        EditText nameField = (EditText) createComponentView.findViewById(R.id.createComponentFieldName);
+
+                        try {
+                            Editable nameFieldEditable;
+                            try {
+                                nameFieldEditable = nameField.getText();
+                            } catch(NullPointerException e) {
+                                throw new Exception("Unable to read name text");
+                            }
+
+                            ComponentDAO.addComponent(new Component(nameFieldEditable.toString(), false, 0, 1), getActivity());
+                        } catch (Exception e) {
+                            ErrorDialog errorDialog = new ErrorDialog();
+                            errorDialog.setErrorMessage(e.toString());
+
+                            errorDialog.show(getActivity().getSupportFragmentManager(), "error");
+                        }
                     }
                 })
                 .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
